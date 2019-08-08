@@ -14,7 +14,7 @@ export const cocktails = {
 	drinks: [
 		{name: "Old Fashioned", description: "Its old fashioned. What else were you expecting?"},
 		{name: "Tom Collins", description: "It's named after a person. Mr. Collins must be very proud."},
-		{name: "Gin and Tonic", description: "Is it really nevessary for me to describe this?"},
+		{name: "Gin and Tonic", description: "Is it really necessary for me to describe this?"},
 		{name: "Long Island Iced Tea", description: "Drinking one of these is like borrowing tomorrow's happiness for today."}
 	]
 }

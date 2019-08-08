@@ -4,6 +4,7 @@ import './App.css';
 import MainBox from './containers/MainBox.js'
 
 class App extends Component {
+
   render() {
     return (
       <Grid centered column={1}>
