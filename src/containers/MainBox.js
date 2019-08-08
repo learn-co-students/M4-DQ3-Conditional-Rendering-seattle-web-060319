@@ -3,7 +3,26 @@ import MenuBar from '../components/MenuBar.js'
 import { Profile, Photos, Cocktails, Pokemon} from '../components/Pages.js'
 
 class MainBox extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      profile: 'item active',
+      photo: 'item',
+      cocktail: 'item',
+      pokemon: 'item'
+    }
+  }
+  handleChangeState = ev => {
+    let newState = {
+      profile: 'item',
+      photo: 'item',
+      cocktail: 'item',
+      pokemon: 'item'
+    }
+    newState[ev.target.id] = 'item active'
 
+    this.setState(newState)
+  }
 
   render() {
 
@@ -13,12 +32,31 @@ class MainBox extends React.Component {
 
     */
 
-    const detailsToDisplay = <div>Hi, I'm a div!</div>
+    let detailsToDisplay = () => {
+      let display = (Object.keys(this.state).find(key => this.state[key] === 'item active'))
+
+      if (display === 'profile') {
+        return <Profile />
+      } else if (display === 'photo') {
+        return <Photos />
+      } else if (display === 'cocktail') {
+        return <Cocktails />
+      } else if (display === 'pokemon') {
+        return <Pokemon />
+      }
+    }
+
 
     return (
       <div>
-        <MenuBar />
-        {detailsToDisplay}
+        <MenuBar
+          handleChangeState={this.handleChangeState}
+          profile={this.state.profile}
+          photo={this.state.photo}
+          cocktail={this.state.cocktail}
+          pokemon={this.state.pokemon}
+        />
+      {detailsToDisplay()}
       </div>
     )
   }
